@@ -51,7 +51,7 @@ Example API Usage
 ```shell
 import requests
 
-API_URL = "https://huggingface.co/spaces/tulasi/DisasterPrediction"
+API_URL = "https://huggingface.co/spaces/Tulasi6031/NLP-for-Disaster-Detection"
 tweet = {"text": "Major flooding in the downtown area, people need help!"}
 
 response = requests.post(API_URL, json=tweet)
