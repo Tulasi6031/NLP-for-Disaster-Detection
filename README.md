@@ -19,48 +19,57 @@ git clone https://github.com/YourGitHubUsername/NLP-for-Disaster-Detection.git
 cd NLP-for-Disaster-Detection
 ```
 
-3. Install dependencies
+> 2. Install dependencies
 Make sure you have Python 3.7+ installed. Run the following command to install the required dependencies:
 
-bash
-Copy code
+```shell
 pip install -r requirements.txt
-3. Run the Streamlit app
-Start the web application on your local machine by running:
+```
+## Try It Out
+You can interact with the model here: Disaster Tweet Classifier on Huggingface
 
-bash
-Copy code
-streamlit run app.py
-You can now access the app in your browser to classify tweets in real time.
+## How to Use
+Enter your tweet into the input box.
+Click "Classify".
+The model will return whether the tweet is disaster-related or not disaster-related.
 
-Usage
-Web Application
-Enter a tweet into the input box.
-Click the "Submit" button to classify the tweet.
-The app will return whether the tweet is disaster-related or not.
-API
-You can interact with the model via an API deployed on Huggingface Spaces. Send a POST request with a tweet, and the API will return the classification.
+Example
+## Input Tweet:
 
-python
-Copy code
+```shell
+#flood #disaster Heavy rain causes flash flooding of streets in Manitou, Colorado Springs areas
+```
+
+output
+## This tweet is about a real disaster. (Probability: 0.9930)
+
+API Access
+The model is also accessible via an API for real-time tweet classification. You can integrate it into your own applications by sending POST requests to the API endpoint.
+
+Example API Usage
+
+```shell
 import requests
 
-API_URL = "https://huggingface.co/your-endpoint-url"
-tweet = {"text": "Earthquake just hit downtown!"}
+API_URL = "https://huggingface.co/spaces/tulasi/DisasterPrediction"
+tweet = {"text": "Major flooding in the downtown area, people need help!"}
 
 response = requests.post(API_URL, json=tweet)
 print(response.json())
-File Structure
-bash
-Copy code
+```
+
+# File Structure
+
+```shell
 .
-├── app.py                # Streamlit app
 ├── README.md             # Project documentation
 ├── requirements.txt      # List of dependencies
 ├── state_dict.pt         # PyTorch model weights
 ├── weights_matrix.npy    # GloVe embeddings matrix
 └── word2idx.pkl          # Word-to-index mapping for embedding
-Future Improvements
-Real-time tweet stream classification
-Multi-language tweet classification
-Performance optimization using Transformer models
+```
+
+
+Future Enhancements
+Real-time monitoring: Integrate the model into real-time Twitter streams to classify tweets automatically as they are posted.
+Multilingual Support: Expand the model to support classification in multiple languages.
